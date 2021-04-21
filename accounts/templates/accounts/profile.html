@@ -1,0 +1,38 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+{% include 'accounts/status.html' %}
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <div class="table table-sm">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date Orderd</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Note</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in listOrders %}
+                            <tr>
+                                <td>{{order.createdAt}}</td>
+                                <td>{{order.product}}</td>
+                                <td>{{order.product.category}}</td>
+                                <td>{{order.note}}</td>
+                                <td>{{order.status}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
